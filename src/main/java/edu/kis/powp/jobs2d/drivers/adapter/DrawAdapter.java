@@ -19,14 +19,7 @@ public class DrawAdapter extends DrawPanelController implements Job2dDriver {
 		super();
 
 	}
-/*
-	public DrawAdapter(JPanel panel) {
 
-		super();
-		initialize(panel);
-
-	}
-*/
 	@Override
 	public void setPosition(int x, int y) {
 		this.startX = x;
