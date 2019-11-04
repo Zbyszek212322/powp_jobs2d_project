@@ -11,10 +11,7 @@ import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.drivers.adapter.AbstractAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.DrawAdapter;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDrawAdapter;
-import edu.kis.powp.jobs2d.events.SelectChangeVisibleOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigure1OptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigure2OptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigureJaneOptionListener;
+import edu.kis.powp.jobs2d.events.*;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 
@@ -33,11 +30,20 @@ public class TestJobs2dPatterns {
 				DriverFeature.getDriverManager());
 		SelectTestFigureJaneOptionListener selectTestFigureJaneOptionListener = new SelectTestFigureJaneOptionListener(
 				DriverFeature.getDriverManager());
+		SelectTestSquareFactoryOptionListener selectTestSquareFactoryOptionListener = new SelectTestSquareFactoryOptionListener(
+				DriverFeature.getDriverManager());
+		SelectTestCircleFactoryOptionListener selectTestCircleFactoryOptionListener = new SelectTestCircleFactoryOptionListener(
+				DriverFeature.getDriverManager());
+		SelectTestTriangleFactoryOptionListener selectTestTriangleFactoryOptionListener = new SelectTestTriangleFactoryOptionListener(
+				DriverFeature.getDriverManager());
 
 
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener1);
 		application.addTest("Figure Joe 2", selectTestFigureOptionListener2);
 		application.addTest("Figure Jane", selectTestFigureJaneOptionListener);
+		application.addTest("Draw square", selectTestSquareFactoryOptionListener);
+		application.addTest("Draw circle", selectTestCircleFactoryOptionListener);
+		application.addTest("Draw triangle", selectTestTriangleFactoryOptionListener);
 	}
 
 	/**
@@ -100,7 +106,6 @@ public class TestJobs2dPatterns {
 			public void run() {
 				Application app = new Application("2d jobs Visio");
 				DrawerFeature.setupDrawerPlugin(app);
-			//	setupDefaultDrawerVisibilityManagement(app);
 
 				DriverFeature.setupDriverPlugin(app);
 				setupDrivers(app);
